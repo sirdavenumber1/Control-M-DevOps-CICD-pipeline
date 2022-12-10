@@ -2,8 +2,8 @@
 	"Defaults": {
 		"Application": "BoEtoMoD",
 		"SubApplication": "FileTransform",
-		"RunAs": "v19p",
-		"Host": "clm-aus-tobcvy"
+		"RunAs": "Administrator",
+		"Host": "ctm01d"
 	},
 	"BoEtoMoD": {
 		"Type": "Folder",
