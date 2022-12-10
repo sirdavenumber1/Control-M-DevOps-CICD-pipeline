@@ -1,15 +1,15 @@
 {
 	"LocalConn": {
 			"Type": "ConnectionProfile:FileTransfer:Local",
-			"TargetAgent": "clm-aus-tobcvy",
-			"TargetCTM": "clm-aus-tobcvy",
-			"User": "v19p",
-			"Password": "e2kDuvel"
+			"TargetAgent": "jobsvr1d",
+			"TargetCTM": "ctm01d",
+			"User": "Administrator",
+			"Password": "Poiser66"
 	},
 	"BoE": {
 			"Type": "ConnectionProfile:FileTransfer:FTP",
-			"TargetAgent": "clm-aus-tobcvy",
-			"TargetCTM": "clm-aus-tobcvy",
+			"TargetAgent": "jobsvr1d",
+			"TargetCTM": "ctm01d",
 			"HostName": "ftp.boe.co.uk",
 			"User": "ftpuser",
 			"Password": {
@@ -18,8 +18,8 @@
 	},
 	"MoD": {
 			"Type": "ConnectionProfile:FileTransfer:FTP",
-			"TargetAgent": "clm-aus-tobcvy",
-			"TargetCTM": "clm-aus-tobcvy",
+			"TargetAgent": "jobsvr1d",
+			"TargetCTM": "ctm01d",
 			"HostName": "ftp.mod.gov",
 			"User": "ftpuser",
 			"Password": {
