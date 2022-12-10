@@ -53,7 +53,7 @@ pipeline {
                 ENDPOINT = 'https://ctm01d:8443/automation-api'
             }
             steps {
-                sh '''
+                bat '''
                 username=$CONTROLM_CREDS_USR
                 password=$CONTROLM_CREDS_PSW
 
