@@ -10,6 +10,8 @@ pipeline {
                 sh '''
                 username=$CONTROLM_CREDS_USR
                 password=$CONTROLM_CREDS_PSW
+                echo username
+                echo password
 
                 # Login
                 login=$(curl -k -s -H "Content-Type: application/json" -X POST -d \\{\\"username\\":\\"$username\\",\\"password\\":\\"$password\\"\\} "$ENDPOINT/session/login" )
