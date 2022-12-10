@@ -7,7 +7,7 @@ pipeline {
                 ENDPOINT = 'https://ctm01d:8443/automation-api'
             }
             steps {
-                bat '''
+                sh '''
                 username=$CONTROLM_CREDS_USR
                 password=$CONTROLM_CREDS_PSW
 
@@ -33,7 +33,7 @@ pipeline {
                 ENDPOINT = 'https://ctm01d:8443/automation-api'
             }
             steps {
-                bat '''
+                sh '''
                 # execute all .sh scripts in the tests directory
                 cd ./tests/
                 for f in *.sh
@@ -53,7 +53,7 @@ pipeline {
                 ENDPOINT = 'https://ctm01d:8443/automation-api'
             }
             steps {
-                bat '''
+                sh '''
                 username=$CONTROLM_CREDS_USR
                 password=$CONTROLM_CREDS_PSW
 
