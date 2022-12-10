@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             environment {
-                CONTROLM_CREDS = credentials('controlm-testserver-creds')
-                ENDPOINT = 'https://clm-aus-tobcvy:8446/automation-api'
+                CONTROLM_CREDS = credentials('controlm-qa-creds')
+                ENDPOINT = 'https://ctm01d:8446/automation-api'
             }
             steps {
                 sh '''
@@ -29,8 +29,8 @@ pipeline {
                 }
             }
             environment {
-                CONTROLM_CREDS = credentials('controlm-testserver-creds')
-                ENDPOINT = 'https://clm-aus-tobcvy:8446/automation-api'
+                CONTROLM_CREDS = credentials('controlm-qa-creds')
+                ENDPOINT = 'https://ctm01d:8446/automation-api'
             }
             steps {
                 sh '''
@@ -49,8 +49,8 @@ pipeline {
                 branch 'master'
             }
             environment {
-                CONTROLM_CREDS = credentials('controlm-prodserver-creds')
-                ENDPOINT = 'https://clm-aus-tobcvy:8446/automation-api'
+                CONTROLM_CREDS = credentials('controlm-prod-creds')
+                ENDPOINT = 'https://ctm01d:8446/automation-api'
             }
             steps {
                 sh '''
