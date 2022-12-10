@@ -2,14 +2,14 @@
 	"LocalConn": {
 			"Type": "ConnectionProfile:FileTransfer:Local",
 			"TargetAgent": "ctm01d",
-			"TargetCTM": "ctm01d",
+			"TargetCTM": "gd_kingston",
 			"User": "Administrator",
 			"Password": "Poiser66"
 	},
 	"BoE": {
 			"Type": "ConnectionProfile:FileTransfer:FTP",
 			"TargetAgent": "ctm01d",
-			"TargetCTM": "ctm01d",
+			"TargetCTM": "gd_kingston",
 			"HostName": "ftp.boe.co.uk",
 			"User": "ftpuser",
 			"Password": {
@@ -19,7 +19,7 @@
 	"MoD": {
 			"Type": "ConnectionProfile:FileTransfer:FTP",
 			"TargetAgent": "ctm01d",
-			"TargetCTM": "ctm01d",
+			"TargetCTM": "gd_kingston",
 			"HostName": "ftp.mod.gov",
 			"User": "ftpuser",
 			"Password": {
