@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             environment {
                 CONTROLM_CREDS = credentials('controlm-qa-creds')
-                ENDPOINT = 'https://ctm01d:8446/automation-api'
+                ENDPOINT = 'https://ctm01d:8443/automation-api'
             }
             steps {
                 sh '''
@@ -30,7 +30,7 @@ pipeline {
             }
             environment {
                 CONTROLM_CREDS = credentials('controlm-qa-creds')
-                ENDPOINT = 'https://ctm01d:8446/automation-api'
+                ENDPOINT = 'https://ctm01d:8443/automation-api'
             }
             steps {
                 sh '''
@@ -50,7 +50,7 @@ pipeline {
             }
             environment {
                 CONTROLM_CREDS = credentials('controlm-prod-creds')
-                ENDPOINT = 'https://ctm01d:8446/automation-api'
+                ENDPOINT = 'https://ctm01d:8443/automation-api'
             }
             steps {
                 sh '''
