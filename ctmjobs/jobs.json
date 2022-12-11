@@ -14,19 +14,18 @@
 		},
 		"DDO_S1_PUT": {
 				"Type" : "Job:FileTransfer",
-				"ConnectionProfileSrc" : "LocalConn",
-				"ConnectionProfileDest" : "QA_GD_GROUP",
+				"ConnectionProfileDualEndpoint" : "QA_GD_GROUP",
 				"Host": "jobsvr1d",
 				"FileTransfers" :
 				[{
 					"Src" : "C:\\Partner_Portal\\OUT\\PpTestfile01.txt",
-					"Dest" : "/ctm/ctmagent/PpTestfile01.txt",
+					"Dest" : "/ctm/ctmagent/Inbound/PpTestfile01.txt",
 					"TransferType": "Binary",
 					"TransferOption": "SrcToDest"
 				},
 				{
-					"Src" : "C:\\Partner_Portal\\IN\\GDTestfile01.txt",
-					"Dest" : "/ctm/ctmagent/GDPpTestfile01.txt",
+					"Src" : "/ctm/ctmagent/Outbound/GDTestfile01.txt",
+					"Dest" : "C:\\Partner_Portal\\IN\\GDTestfile01.txt",
 					"TransferOption": "DestToSrc"
 				}]
 		},
