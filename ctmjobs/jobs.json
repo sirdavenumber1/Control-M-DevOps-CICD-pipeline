@@ -7,7 +7,11 @@
 	},
 	"BoEtoMoD": {
 		"Type": "Folder",
-		"Comment": "Code reviewed by us DDOS team",
+		"Comment": "Code reviewed by us DDOS team",		
+		"DDO_S1_START": {
+			"Type": "Job:Command",
+			"Command": "echo Hello folks!"
+		},
 		"DDO_S1_DOWNLOAD": {
 			"Type": "Job:FileTransfer",
 			"ConnectionProfileSrc": "BoE",
@@ -40,7 +44,8 @@
 		},
 		"Flow": {
 			"Type": "Flow",
-			"Sequence": ["DDO_S1_DOWNLOAD",
+			"Sequence": ["DDO_S1_START",
+			"DDO_S1_DOWNLOAD",
 			"DDO_S1_TRANSFORM",
 			"DDO_S1_VALIDATE",
 			"DDO_S1_UPLOAD"]
