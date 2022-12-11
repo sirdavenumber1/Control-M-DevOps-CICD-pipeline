@@ -6,7 +6,7 @@
 		"Host": "ctm01d"
 	},
 	"BoEtoMoD": {
-		"Type": "Folder",
+		"Type": "SimpleFolder",
 		"Comment": "Code reviewed by IMA team",		
 		"DDO_S1_START": {
 			"Type": "Job:Command",
