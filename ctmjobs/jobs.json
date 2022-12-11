@@ -7,7 +7,7 @@
 	},
 	"BoEtoMoD": {
 		"Type": "Folder",
-		"Comment": "Code reviewed by us DDOS team",		
+		"Comment": "Code reviewed by IMA team",		
 		"DDO_S1_START": {
 			"Type": "Job:Command",
 			"Command": "echo Hello folks!"
