@@ -38,6 +38,7 @@
 				[{
 					"Dest" : "/ctm/ctmagent/Outbound/GDTestfile01.txt",
 					"Src" : "C:\\Partner_Portal\\IN\\GDTestfile01.txt",
+					"TransferType": "Binary",
 					"TransferOption": "DestToSrc"
 				}]
 		},		
@@ -46,7 +47,7 @@
 			"Sequence": ["INIT_PP_PROCESS",
 			"SAY_HELLO",
 			"PUT_PP_FILE",
-			"GET_GD_FILE"
+			"GET_GD_FILE"]
 		}
 	}
 }
