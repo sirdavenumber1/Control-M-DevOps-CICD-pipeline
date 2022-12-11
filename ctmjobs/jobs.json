@@ -12,6 +12,13 @@
 			"Type": "Job:Command",
 			"RunAs": "Administrator",
 			"Host": "jobsvr1d",
+			"ActionIfFailure" : {
+				    "Type": "If",        
+				    "CompletionStatus": "60",
+						"SetToOKActionName": {
+						"Type": "Action:SetToOK"
+						}
+					},
 			"Command": "\"C:\\Program Files\\BMC Software\\scripts\\PS\\ODS\\DAUTH\\CRT_DAUTH_DATA\\CRT_DAUTH_DATA.exe\" ctm01d DEV"
 		},
 		"SAY_HELLO": {
