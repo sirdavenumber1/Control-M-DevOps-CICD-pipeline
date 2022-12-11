@@ -24,8 +24,8 @@
 					"TransferOption": "SrcToDest"
 				},
 				{
-					"Src" : "/ctm/ctmagent/Outbound/GDTestfile01.txt",
-					"Dest" : "C:\\Partner_Portal\\IN\\GDTestfile01.txt",
+					"Dest" : "/ctm/ctmagent/Outbound/GDTestfile01.txt",
+					"Src" : "C:\\Partner_Portal\\IN\\GDTestfile01.txt",
 					"TransferOption": "DestToSrc"
 				}]
 		},
