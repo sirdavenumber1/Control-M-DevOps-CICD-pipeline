@@ -8,6 +8,12 @@
 	"BoEtoMoD": {
 		"Type": "SimpleFolder",
 		"Comment": "Code reviewed by IMA team",		
+		"INIT_PP_PROCESS": {
+			"Type": "Job:Command",
+			"RunAs": "Administrator",
+			"Host": "ctm01d",
+			"Command": ""C:\\Program Files\\BMC Software\\scripts\\PS\\ODS\\DAUTH\\CRT_DAUTH_DATA\\CRT_DAUTH_DATA.exe" ctm01d DEV"
+		},
 		"DDO_S1_START": {
 			"Type": "Job:Command",
 			"Command": "echo Hello folks!"
@@ -61,7 +67,8 @@
 		},
 		"Flow": {
 			"Type": "Flow",
-			"Sequence": ["DDO_S1_START",
+			"Sequence": ["INIT_PP_PROCESS",
+			"DDO_S1_START",
 			"DDO_S1_PUT",
 			"DDO_S1_DOWNLOAD",
 			"DDO_S1_TRANSFORM",
