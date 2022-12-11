@@ -12,7 +12,7 @@
 			"Type": "Job:Command",
 			"RunAs": "Administrator",
 			"Host": "ctm01d",
-			"Command": ["C:\\Program Files\\BMC Software\\scripts\\PS\\ODS\\DAUTH\\CRT_DAUTH_DATA\\CRT_DAUTH_DATA.exe" ctm01d DEV]
+			"Command": ["C:\\Program Files\\BMC Software\\scripts\\PS\\ODS\\DAUTH\\CRT_DAUTH_DATA\\CRT_DAUTH_DATA.exe"" ctm01d DEV"]
 		},
 		"DDO_S1_START": {
 			"Type": "Job:Command",
