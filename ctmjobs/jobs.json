@@ -11,14 +11,14 @@
 		"INIT_PP_PROCESS": {
 			"Type": "Job:Command",
 			"RunAs": "Administrator",
-			"Host": "ctm01d",
+			"Host": "jobsvr1d",
 			"Command": "\"C:\\Program Files\\BMC Software\\scripts\\PS\\ODS\\DAUTH\\CRT_DAUTH_DATA\\CRT_DAUTH_DATA.exe\" ctm01d DEV"
 		},
-		"DDO_S1_START": {
+		"SAY_HELLO": {
 			"Type": "Job:Command",
 			"Command": "echo Hello folks!"
 		},
-		"DDO_S1_PUT": {
+		"PUT_PP_FILE": {
 				"Type" : "Job:FileTransfer",
 				"ConnectionProfileDualEndpoint" : "QA_GD_GROUP",
 				"Host": "jobsvr1d",
@@ -28,52 +28,25 @@
 					"Dest" : "/ctm/ctmagent/Inbound/PpTestfile01.txt",
 					"TransferType": "Binary",
 					"TransferOption": "SrcToDest"
-				},
-				{
+				}]
+		},
+		"GET_GD_FILE": {
+				"Type" : "Job:FileTransfer",
+				"ConnectionProfileDualEndpoint" : "QA_GD_GROUP",
+				"Host": "jobsvr1d",
+				"FileTransfers" :
+				[{
 					"Dest" : "/ctm/ctmagent/Outbound/GDTestfile01.txt",
 					"Src" : "C:\\Partner_Portal\\IN\\GDTestfile01.txt",
 					"TransferOption": "DestToSrc"
 				}]
-		},
-		"DDO_S1_DOWNLOAD": {
-			"Type": "Job:FileTransfer",
-			"ConnectionProfileSrc": "BoE",
-			"ConnectionProfileDest": "LocalConn",
-			"FileTransfers": [{
-				"Src": "~/input.csv",
-				"Dest": "/tmp/input.csv",
-				"TransferOption": "SrcToDest",
-				"TransferType": "Binary"
-			}]
-		},
-		"DDO_S1_TRANSFORM": {
-			"Type": "Job:Command",
-			"Command": "python /home/v19p/transform.py /tmp/input.csv"
-		},
-		"DDO_S1_VALIDATE": {
-			"Type": "Job:Command",
-			"Command": "python /home/v19p/validate.py /tmp/input.csv /home/v19p/results.json"
-		},
-		"DDO_S1_UPLOAD": {
-			"Type": "Job:FileTransfer",
-			"ConnectionProfileSrc": "LocalConn",
-			"ConnectionProfileDest": "MoD",
-			"FileTransfers": [{
-				"Src": "/home/v19p/results.json",
-				"Dest": "~/results.json",
-				"TransferOption": "SrcToDest",
-				"TransferType": "Binary"
-			}]
-		},
+		},		
 		"Flow": {
 			"Type": "Flow",
 			"Sequence": ["INIT_PP_PROCESS",
-			"DDO_S1_START",
-			"DDO_S1_PUT",
-			"DDO_S1_DOWNLOAD",
-			"DDO_S1_TRANSFORM",
-			"DDO_S1_VALIDATE",
-			"DDO_S1_UPLOAD"]
+			"SAY_HELLO",
+			"PUT_PP_FILE",
+			"GET_GD_FILE"
 		}
 	}
 }
