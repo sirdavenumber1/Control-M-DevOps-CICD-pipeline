@@ -19,7 +19,7 @@
 						"Type": "Action:SetToOK"
 						}
 					},
-			"Command": "\"C:\\Program Files\\BMC Software\\scripts\\PS\\ODS\\DAUTH\\CRT_DAUTH_DATA\\CRT_DAUTH_DATA.exe\" ctm01d DEV"
+			"Command": "\"C:\\Program Files\\BMC Software\\scripts\\PS\\Provider_Portal\\CRT_PP_DATA\\CRT_PP_DATA.exe\" ctm01d DEV"
 		},
 		"SAY_HELLO": {
 			"Type": "Job:Command",
