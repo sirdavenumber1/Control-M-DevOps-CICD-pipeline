@@ -48,13 +48,18 @@
 					"TransferType": "Binary",
 					"TransferOption": "DestToSrc"
 				}]
+		},
+		"END_PP_PROCESS": {
+			"Type": "Job:Command",
+			"Command": "echo Bye folks!"
 		},		
 		"Flow": {
 			"Type": "Flow",
 			"Sequence": ["INIT_PP_PROCESS",
 			"SAY_HELLO",
 			"PUT_PP_FILE",
-			"GET_GD_FILE"]
+			"GET_GD_FILE",
+			"END_PP_PROCESS"]
 		}
 	}
 }
