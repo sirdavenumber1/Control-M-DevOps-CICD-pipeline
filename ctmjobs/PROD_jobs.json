@@ -1,0 +1,65 @@
+{
+	"Defaults": {
+		"Application": "BoEtoMoD",
+		"SubApplication": "FileTransform",
+		"RunAs": "Administrator",
+		"Host": "ctm01p"
+	},
+	"BoEtoMoD": {
+		"Type": "SimpleFolder",
+		"Comment": "Code reviewed by IMA team",		
+		"INIT_PP_PROCESS": {
+			"Type": "Job:Command",
+			"RunAs": "Administrator",
+			"Host": "jobsvr1p",
+			"ActionIfFailure" : {
+				    "Type": "If",        
+				    "CompletionStatus": "60",
+						"SetToOKActionName": {
+						"Type": "Action:SetToOK"
+						}
+					},
+			"Command": "\"C:\\Program Files\\BMC Software\\scripts\\PS\\Provider_Portal\\CRT_PP_DATA\\CRT_PP_DATA.exe\" ctm01p PROD"
+		},
+		"SAY_HELLO": {
+			"Type": "Job:Command",
+			"Command": "echo Hello folks!"
+		},
+		"PUT_PP_FILE": {
+				"Type" : "Job:FileTransfer",
+				"ConnectionProfileDualEndpoint" : "PROD_GD_GROUP",
+				"Host": "jobsvr1p",
+				"FileTransfers" :
+				[{
+					"Src" : "C:\\Partner_Portal\\OUT\\PpTestfile01.txt",
+					"Dest" : "/ctm/ctmagent/Inbound/PpTestfile01.txt",
+					"TransferType": "Binary",
+					"TransferOption": "SrcToDest"
+				}]
+		},
+		"GET_GD_FILE": {
+				"Type" : "Job:FileTransfer",
+				"ConnectionProfileDualEndpoint" : "PROD_GD_GROUP",
+				"Host": "jobsvr1p",
+				"FileTransfers" :
+				[{
+					"Dest" : "/ctm/ctmagent/Outbound/GDTestfile01.txt",
+					"Src" : "C:\\Partner_Portal\\IN\\GDTestfile01.txt",
+					"TransferType": "Binary",
+					"TransferOption": "DestToSrc"
+				}]
+		},
+		"END_PP_PROCESS": {
+			"Type": "Job:Command",
+			"Command": "echo Bye folks!"
+		},		
+		"Flow": {
+			"Type": "Flow",
+			"Sequence": ["INIT_PP_PROCESS",
+			"SAY_HELLO",
+			"PUT_PP_FILE",
+			"GET_GD_FILE",
+			"END_PP_PROCESS"]
+		}
+	}
+}
