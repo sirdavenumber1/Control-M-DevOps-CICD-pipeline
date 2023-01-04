@@ -50,7 +50,7 @@ pipeline {
             }
             environment {
                 CONTROLM_CREDS = credentials('controlm-prod-creds')
-                ENDPOINT = 'https://ctm01d:8443/automation-api'
+                ENDPOINT = 'https://ctm01p:8443/automation-api'
             }
             steps {
                 sh '''
@@ -63,7 +63,7 @@ pipeline {
 
                 # Deploy connection profiles and jobs
                 # curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/MFT-conn-profiles.json" "$ENDPOINT/deploy"
-                curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/jobs.json" "$ENDPOINT/deploy"
+                curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/PROD_jobs.json" "$ENDPOINT/deploy"
                 curl -k -s -H "Authorization: Bearer $token" -X POST "$ENDPOINT/session/logout"
                 '''                
             }
