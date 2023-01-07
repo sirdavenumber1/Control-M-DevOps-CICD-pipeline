@@ -1,11 +1,11 @@
 {            
 	"Defaults": {
-		"Application": "${CTM_ENV}BoEtoMoD",
+		"Application": "${env.CTM_ENV}BoEtoMoD",
 		"SubApplication": "FileTransform",
 		"RunAs": "Administrator",
 		"Host": "ctm01d"
 	},
-	"${CTM_ENV}BoEtoMoD": {
+	"${env.CTM_ENV}BoEtoMoD": {
 		"Type": "SimpleFolder",
 		"Comment": "Code reviewed by IMA team",		
 		"INIT_PP_PROCESS": {
