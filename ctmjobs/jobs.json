@@ -23,7 +23,7 @@
 		},
 		"SAY_HELLO": {
 			"Type": "Job:Command",
-			"Command": "echo Hello folks!"
+			"Command": "echo Hello folks!",
 		"Wait1": {
 				  "Type": "WaitForEvents",
 				  "Events": [
