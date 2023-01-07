@@ -31,6 +31,15 @@
 				      {"Event":"e2"}, 
 				      {"Event":"e3", "OrderDate":"AnyDate"}
 				  ]
+			},
+		"del1" :
+			{
+				  "Type": "DeleteEvents",
+				  "Events": [
+				      {"Event":"e1"},
+				      {"Event":"e2", "OrderDate":"AnyDate"},
+				      {"Event":"e3"}
+				  ]
 			}
 		},
 		"PUT_PP_FILE": {
