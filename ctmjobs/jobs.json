@@ -1,6 +1,6 @@
 {
 	"Defaults": {
-		"Application": "BoEtoMoD",
+		"Application": "${CTM_ENV}BoEtoMoD",
 		"SubApplication": "FileTransform",
 		"RunAs": "Administrator",
 		"Host": "ctm01d"
@@ -23,7 +23,7 @@
 		},
 		"SAY_HELLO": {
 			"Type": "Job:Command",
-			"Command": "echo Hello folks!",
+			"Command": "echo Hello folks This Control-M environment is ${CTM_ENV}!",
 		"Wait1": {
 				  "Type": "WaitForEvents",
 				  "Events": [
