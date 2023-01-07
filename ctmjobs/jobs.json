@@ -5,7 +5,7 @@
 		"RunAs": "Administrator",
 		"Host": "ctm01d"
 	},
-	"BoEtoMoD": {
+	"${CTM_ENV}BoEtoMoD": {
 		"Type": "SimpleFolder",
 		"Comment": "Code reviewed by IMA team",		
 		"INIT_PP_PROCESS": {
