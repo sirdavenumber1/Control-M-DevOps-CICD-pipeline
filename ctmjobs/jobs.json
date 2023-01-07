@@ -1,6 +1,6 @@
 {            
 	environment {
-                CTM_ENV = 'DEV_'
+                CTM_ENV = "DEV_"
             },
 	"Defaults": {
 		"Application": "${CTM_ENV}BoEtoMoD",
