@@ -24,6 +24,14 @@
 		"SAY_HELLO": {
 			"Type": "Job:Command",
 			"Command": "echo Hello folks!"
+		"Wait1": {
+				  "Type": "WaitForEvents",
+				  "Events": [
+				      {"Event":"e1"}, 
+				      {"Event":"e2"}, 
+				      {"Event":"e3", "OrderDate":"AnyDate"}
+				  ]
+			}
 		},
 		"PUT_PP_FILE": {
 				"Type" : "Job:FileTransfer",
