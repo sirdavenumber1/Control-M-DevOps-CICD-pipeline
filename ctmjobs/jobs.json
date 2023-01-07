@@ -1,7 +1,4 @@
 {            
-	environment {
-                CTM_ENV = "DEV_"
-            }
 	"Defaults": {
 		"Application": "${CTM_ENV}BoEtoMoD",
 		"SubApplication": "FileTransform",
