@@ -109,7 +109,7 @@ echo $token
 curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=$Temp_JobDef_path" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
 
 # Log out from the session#
-curl -k -s -H "Authorization: Bearer $token" --request POST --data "{\"username\":\"$prodUser\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
+curl -k -s -H "Authorization: Bearer $token" --request POST --data "{\"username\":\"$username\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
 
 # Clean up temp file#
 rm -f $Temp_JobDef_path
