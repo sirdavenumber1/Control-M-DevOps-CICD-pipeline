@@ -75,6 +75,7 @@ pipeline {
                 
                 
 Temp_JobDef_path=temp_job_file.json
+xTemp_JobDef_path=xtemp_job_file.json
 #Temp_JobDef_path=/cygdrive/c/temp_job_file.json
 #Temp_JobDef_path=/cygdrive/c/temp_job_file.json
 
@@ -92,7 +93,8 @@ tmp=$(curl -k -H "Authorization: Bearer $token" "Content-Type: application/json"
 
 #echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > /tmp/temp_job_file.json
 #echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > /cygdrive/c/temp_job_file.json
-#echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > temp_job_file.json
+#echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > xtemp_job_file.json
+echo -e $tmp > xtemp_job_file.json
 #Temp_JobDef_path
 sleep 10
 
