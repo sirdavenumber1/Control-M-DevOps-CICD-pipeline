@@ -106,10 +106,10 @@ token=$(echo ${login##*token\" : \"} | cut -d '"' -f 1)
 echo $token
 
 # dynamic job def to transform and deploy#
-curl -k -H "Authorization: Bearer $token" -X POST -F "definitionsFile=$Temp_JobDef_path" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
+curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=$Temp_JobDef_path" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
 
 # Log out from the session#
-curl --insecure --header "Authorization: Bearer $token" --request POST --data "{\"username\":\"$prodUser\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
+curl -k -s -H "Authorization: Bearer $token" --request POST --data "{\"username\":\"$prodUser\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
 
 # Clean up temp file#
 rm -f $Temp_JobDef_path
