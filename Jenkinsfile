@@ -74,7 +74,7 @@ pipeline {
                 
                 
                 
-Temp_JobDef_path=@tmp/temp_job_file.json
+Temp_JobDef_path=/tmp/temp_job_file.json
 
 #Dev
 #devEndPoint=https://ctm01p:8443/automation-api
