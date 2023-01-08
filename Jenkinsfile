@@ -54,7 +54,7 @@ pipeline {
             }
             environment {
                 CONTROLM_CREDS = credentials('controlm-qa-creds')
-                ENDPOINT = 'https://ctm01q:8443/automation-api'
+                ENDPOINT = 'https://ctm01d:8443/automation-api'
                 CTM_ENV = 'DEV_PROD_'
             }
             steps {
