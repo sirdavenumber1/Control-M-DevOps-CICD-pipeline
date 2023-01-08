@@ -76,6 +76,7 @@ pipeline {
                 
 Temp_JobDef_path=temp_job_file.json
 #Temp_JobDef_path=/cygdrive/c/temp_job_file.json
+#Temp_JobDef_path=/cygdrive/c/temp_job_file.json
 
 #Dev
 #devEndPoint=https://ctm01p:8443/automation-api
@@ -113,9 +114,9 @@ token=$(echo ${login##*token\\" : \\"} | cut -d '"' -f 1)
 
 # dynamic job def to transform and deploy#
 # curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@$Temp_JobDef_path" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
-# curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@$Temp_JobDef_path" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
+curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@$Temp_JobDef_path" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
 #curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/PP_jobs.json" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
-curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/test0001.json" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
+#curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/test0001.json" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
 
 # Log out from the session#
 #curl -k -s -H "Authorization: Bearer $token" --request POST --data "{\"username\":\"$username\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
