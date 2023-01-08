@@ -94,7 +94,7 @@ tmp=$(curl -k -H "Authorization: Bearer $token" "Content-Type: application/json"
 
 echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > $Temp_JobDef_path
 
-curl --insecure --header "Authorization: Bearer $token" --request POST --data "{\"username\":\"$devUser\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
+curl -k -s -H "Authorization: Bearer $token" --request POST --data "{\"username\":\"$devUser\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
 
 # Login to automation API and start a session on PROD# 
 # PRODlogin=$(curl -s --insecure --header "Content-Type: application/json" --request POST --data "{\"username\":\"$prodUser\",\"password\":\"$prodPasswd\"}" "$prodEndPoint/session/login") 
