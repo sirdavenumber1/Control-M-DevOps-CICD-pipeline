@@ -100,7 +100,7 @@ tmp=$(curl -k -H "Authorization: Bearer $token" "Content-Type: application/json"
 #echo -e $tmp | sed 's/\"C:/"\\CCCC:/g' > xtemp_job_file.json 
 
 
-echo -i $tmp | sed '/^*\"Command\".*/ s/C/CCCCCCCC/g' > xtemp_job_file.json 
+echo $tmp | sed -i '/^*\"Command\".*/ s/C/CCCCCCCC/g' > xtemp_job_file.json 
 
 
 
