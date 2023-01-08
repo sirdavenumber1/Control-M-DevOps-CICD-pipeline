@@ -89,12 +89,10 @@ login=$(curl -k -s -H "Content-Type: application/json" -X POST -d \\{\\"username
 # Extract the token ID from session details from Dev# 
 # token=$(echo ${login##*token\" : \"} | cut -d '"' -f 1)
 token=$(echo ${login##*token\\" : \\"} | cut -d '"' -f 1)
-echo $token
+#echo $token
 
 # Download the job definitions and save on json#
 tmp=$(curl -k -H "Authorization: Bearer $token" "Content-Type: application/json" "$ENDPOINT/deploy/jobs?ctm=*&folder=DEV_ABC123")
-
-echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 
 #echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > /tmp/temp_job_file.json
 #echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > /cygdrive/c/temp_job_file.json
@@ -109,27 +107,22 @@ curl -k -s -H "Authorization: Bearer $token" --request POST "$ENDPOINT/session/l
 # PRODlogin=$(curl -s --insecure --header "Content-Type: application/json" --request POST --data "{\"username\":\"$prodUser\",\"password\":\"$prodPasswd\"}" "$prodEndPoint/session/login") 
 login=$(curl -k -s -H "Content-Type: application/json" -X POST -d \\{\\"username\\":\\"$username\\",\\"password\\":\\"$password\\"\\} "$ENDPOINT/session/login" ) 
 
-echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
 # Extract the token ID from session details from PROD# 
 token=$(echo ${login##*token\\" : \\"} | cut -d '"' -f 1)
-echo $token
-
-echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+#echo $token
 
 # dynamic job def to transform and deploy#
 # curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@$Temp_JobDef_path" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
 # curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@$Temp_JobDef_path" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
-curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/PP_jobs.json" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
-
-echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+#curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/PP_jobs.json" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
+curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/test0001.json" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
 
 # Log out from the session#
 #curl -k -s -H "Authorization: Bearer $token" --request POST --data "{\"username\":\"$username\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
 curl -k -s -H "Authorization: Bearer $token" -X POST "$ENDPOINT/session/logout"
 
 # Clean up temp file#
-rm -f $Temp_JobDef_path
+# rm -f $Temp_JobDef_path
                 '''                
             }
         }
