@@ -61,13 +61,56 @@ pipeline {
                 password=$CONTROLM_CREDS_PSW
 
                 # Login
-                login=$(curl -k -s -H "Content-Type: application/json" -X POST -d \\{\\"username\\":\\"$username\\",\\"password\\":\\"$password\\"\\} "$ENDPOINT/session/login" )
-                token=$(echo ${login##*token\\" : \\"} | cut -d '"' -f 1)
+ #               login=$(curl -k -s -H "Content-Type: application/json" -X POST -d \\{\\"username\\":\\"$username\\",\\"password\\":\\"$password\\"\\} "$ENDPOINT/session/login" )
+ #               token=$(echo ${login##*token\\" : \\"} | cut -d '"' -f 1)
 
                 # Deploy connection profiles and jobs
                 # curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/MFT-conn-profiles.json" "$ENDPOINT/deploy"
-                curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/PROD_jobs.json" "$ENDPOINT/deploy"
-                curl -k -s -H "Authorization: Bearer $token" -X POST "$ENDPOINT/session/logout"
+  #              curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/PROD_jobs.json" "$ENDPOINT/deploy"
+  #              curl -k -s -H "Authorization: Bearer $token" -X POST "$ENDPOINT/session/logout"
+                
+                
+                
+                
+Temp_JobDef_path=/cygdrive/c/temp_job_file.json
+
+#Dev
+#devEndPoint=https://ctm01p:8443/automation-api
+#devUser=apiuser 
+#devPasswd=empass 
+
+# Login to automation API and start a session on Dev# 
+# devLogin=$(curl -s --insecure --header "Content-Type: application/json" --request POST --data "{\"username\":\"$devUser\",\"password\":\"$devPasswd\"}" "$devEndPoint/session/login") 
+login=$(curl -k -s -H "Content-Type: application/json" -X POST -d \\{\\"username\\":\\"$username\\",\\"password\\":\\"$password\\"\\} "$ENDPOINT/session/login" )
+
+# Extract the token ID from session details from Dev# 
+token=$(echo ${login##*token\" : \"} | cut -d '"' -f 1)
+echo $token
+
+# Download the job definitions and save on json#
+tmp=$(curl -k -H "Authorization: Bearer $token" "Content-Type: application/json" "$ENDPOINT/deploy/jobs?ctm=*&folder=DEV_ABC123")
+
+echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > /cygdrive/c/temp_job_file.json
+
+curl --insecure --header "Authorization: Bearer $token" --request POST --data "{\"username\":\"$devUser\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
+
+# Login to automation API and start a session on PROD# 
+# PRODlogin=$(curl -s --insecure --header "Content-Type: application/json" --request POST --data "{\"username\":\"$prodUser\",\"password\":\"$prodPasswd\"}" "$prodEndPoint/session/login") 
+login=$(curl -k -s -H "Content-Type: application/json" -X POST -d \\{\\"username\\":\\"$username\\",\\"password\\":\\"$password\\"\\} "$ENDPOINT/session/login" ) 
+
+# Extract the token ID from session details from PROD# 
+# PRODtoken=$(echo ${PRODlogin##*token\" : \"} | cut -d '"' -f 1)
+token=$(echo ${login##*token\" : \"} | cut -d '"' -f 1)
+echo $token
+
+# dynamic job def to transform and deploy#
+curl -k -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@$Temp_JobDef_path" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
+
+# Log out from the session#
+curl --insecure --header "Authorization: Bearer $token" --request POST --data "{\"username\":\"$prodUser\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
+
+# Clean up temp file#
+rm -f $Temp_JobDef_path
                 '''                
             }
         }
