@@ -48,7 +48,9 @@ pipeline {
         }
         stage('Deploy') {
             when{
-                branch 'main'
+                expression {
+                return env.BRANCH_NAME != 'master';
+                }
             }
             environment {
                 CONTROLM_CREDS = credentials('controlm-prod-creds')
