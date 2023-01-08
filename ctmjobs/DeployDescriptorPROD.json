@@ -4,7 +4,7 @@
     {
 	  "Comment": "Assign Control-M Server",
       "Property" :"ControlmServer",
-      "Assign" : "ctm01d"
+      "Assign" : "gd_kingston"
     },
     {
 	  "Comment": "Rename folder prefix from Dev to PROD",
