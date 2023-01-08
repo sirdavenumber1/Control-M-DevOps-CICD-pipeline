@@ -74,7 +74,7 @@ pipeline {
                 
                 
                 
-Temp_JobDef_path=/temp_job_file.json
+Temp_JobDef_path=temp_job_file.json
 #Temp_JobDef_path=/cygdrive/c/temp_job_file.json
 
 #Dev
@@ -98,7 +98,7 @@ echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 
 #echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > /tmp/temp_job_file.json
 #echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > /cygdrive/c/temp_job_file.json
-echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > /temp_job_file.json
+echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > temp_job_file.json
 #Temp_JobDef_path
 sleep 10
 
