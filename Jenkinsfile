@@ -96,7 +96,8 @@ tmp=$(curl -k -H "Authorization: Bearer $token" "Content-Type: application/json"
 #echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > xtemp_job_file.json
 #echo -e $tmp > xtemp_job_file.json
 #echo -e $tmp | sed -e 's/C:\\/\\C:\\\\/g' > xtemp_job_file.json
-echo -e $tmp | sed 's/\"C:/"\"\"\\CCCC:/g' > xtemp_job_file.json 
+#echo -e $tmp | sed 's/\"C:/"\"\"\\CCCC:/g' > xtemp_job_file.json 
+echo -e $tmp | sed 's/\"C:/"\\CCCC:/g' > xtemp_job_file.json 
 
 #Temp_JobDef_path
 sleep 10
