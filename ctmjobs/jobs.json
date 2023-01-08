@@ -23,33 +23,7 @@
 		},
 		"SAY_HELLO": {
 			"Type": "Job:Command",
-			"Command": "echo Hello folks This Control-M environment is !",
-		"Wait1": {
-				  "Type": "WaitForEvents",
-				  "Events": [
-				      {"Event":"e1"}, 
-				      {"Event":"e2", "OrderDate":"AnyDate"}, 
-				      {"Event":"e3"}
-				  ]
-			},
-		"del1" :
-			{
-				  "Type": "DeleteEvents",
-				  "Events": [
-				      {"Event":"e1"},
-				      {"Event":"e2", "OrderDate":"AnyDate"},
-				      {"Event":"e3"}
-				  ]
-			},
-		"add1" :
-			{
-				  "Type": "AddEvents",
-				  "Events": [
-				      {"Event":"d1"}, 
-				      {"Event":"d2"}, 
-				      {"Event":"d3"}
-				  ]
-			}
+			"Command": "echo Hello folks This Control-M environment is !"
 		},
 		"PUT_PP_FILE": {
 				"Type" : "Job:FileTransfer",
