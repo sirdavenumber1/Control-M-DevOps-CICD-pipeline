@@ -23,7 +23,7 @@
 		},
 		"SAY_HELLO": {
 			"Type": "Job:Command",
-			"Command": "echo Hello folks This Control-M environment is ${CTM_ENV}!",
+			"Command": "echo Hello folks This Control-M environment is !",
 		"Wait1": {
 				  "Type": "WaitForEvents",
 				  "Events": [
