@@ -92,6 +92,8 @@ echo $token
 # Download the job definitions and save on json#
 tmp=$(curl -k -H "Authorization: Bearer $token" "Content-Type: application/json" "$ENDPOINT/deploy/jobs?ctm=*&folder=DEV_ABC123")
 
+echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+
 echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > $Temp_JobDef_path
 echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 echo $tmp
