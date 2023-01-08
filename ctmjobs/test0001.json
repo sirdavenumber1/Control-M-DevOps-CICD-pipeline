@@ -1,5 +1,5 @@
 {
-  "DEV_ABC123" : {
+  "PREPROD_ABC123" : {
     "Type" : "SimpleFolder",
     "ControlmServer" : "gd_kingston",
     "INIT_PP_PROCESS" : {
@@ -7,7 +7,7 @@
       "SubApplication" : "FileTransform",
       "Host" : "jobsvr1d",
       "RunAs" : "Administrator",
-      "Application" : "DEV_ABC123",
+      "Application" : "PREPROD_ABC123",
       "Command" : "\"C:\\Program Files\\BMC Software\\scripts\\PS\\Provider_Portal\\CRT_PP_DATA\\CRT_PP_DATA.exe\" ctm01d DEV",
       "IfBase:Folder:CompletionStatus_0" : {
         "Type" : "If:CompletionStatus",
@@ -22,7 +22,7 @@
       "SubApplication" : "FileTransform",
       "Host" : "ctm01d",
       "RunAs" : "Administrator",
-      "Application" : "DEV_ABC123",
+      "Application" : "PREPROD_ABC123",
       "Command" : "echo Hello folks This Control-M environment is !",
       "eventsToWaitFor" : {
         "Type" : "WaitForEvents",
@@ -63,7 +63,7 @@
       "SubApplication" : "FileTransform",
       "Host" : "jobsvr1d",
       "RunAs" : "QA_GD_GROUP",
-      "Application" : "DEV_ABC123",
+      "Application" : "PREPROD_ABC123",
       "FileTransfers" : [ {
         "ABSTIME" : "0",
         "VERNUM" : "0",
@@ -89,7 +89,7 @@
       "SubApplication" : "FileTransform",
       "Host" : "jobsvr1d",
       "RunAs" : "QA_GD_GROUP",
-      "Application" : "DEV_ABC123",
+      "Application" : "PREPROD_ABC123",
       "FileTransfers" : [ {
         "ABSTIME" : "0",
         "VERNUM" : "0",
@@ -114,7 +114,7 @@
       "SubApplication" : "FileTransform",
       "Host" : "ctm01d",
       "RunAs" : "Administrator",
-      "Application" : "DEV_ABC123",
+      "Application" : "PREPROD_ABC123",
       "Command" : "echo Bye folks!"
     },
     "Flow" : {
