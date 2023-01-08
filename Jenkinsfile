@@ -74,8 +74,8 @@ pipeline {
                 
                 
                 
-#Temp_JobDef_path="/tmp/temp_job_file.json"
-Temp_JobDef_path=/cygdrive/c/temp_job_file.json
+Temp_JobDef_path=/tmp/temp_job_file.json
+#Temp_JobDef_path=/cygdrive/c/temp_job_file.json
 
 #Dev
 #devEndPoint=https://ctm01p:8443/automation-api
@@ -96,8 +96,8 @@ tmp=$(curl -k -H "Authorization: Bearer $token" "Content-Type: application/json"
 
 echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 
-#echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > '/tmp/temp_job_file.json'
-echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > /cygdrive/c/temp_job_file.json
+echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > /tmp/temp_job_file.json
+#echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > /cygdrive/c/temp_job_file.json
 
 
 echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
