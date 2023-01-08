@@ -94,7 +94,13 @@ tmp=$(curl -k -H "Authorization: Bearer $token" "Content-Type: application/json"
 
 echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > $Temp_JobDef_path
 
-curl -k -s -H "Authorization: Bearer $token" --request POST --data "{\"username\":\"$username\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
+#curl -k -s -H "Authorization: Bearer $token" --request POST --data "{\"username\":\"$username\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
+curl -k -s -H "Authorization: Bearer $token" --request POST "$ENDPOINT/session/logout"
+
+
+#########                curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/jobs.json" "$ENDPOINT/build"
+#########                curl -k -s -H "Authorization: Bearer $token" -X POST "$ENDPOINT/session/logout"
+
 
 # Login to automation API and start a session on PROD# 
 # PRODlogin=$(curl -s --insecure --header "Content-Type: application/json" --request POST --data "{\"username\":\"$prodUser\",\"password\":\"$prodPasswd\"}" "$prodEndPoint/session/login") 
@@ -109,8 +115,8 @@ echo $token
 curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=$Temp_JobDef_path" -F "deployDescriptorFile=@ctmjobs/DeployDescriptorPROD.json" "$ENDPOINT/deploy" 
 
 # Log out from the session#
-curl -k -s -H "Authorization: Bearer $token" --request POST --data "{\"username\":\"$username\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
-#curl -k -s -H "Authorization: Bearer $token" -X POST "$ENDPOINT/session/logout"
+#curl -k -s -H "Authorization: Bearer $token" --request POST --data "{\"username\":\"$username\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
+curl -k -s -H "Authorization: Bearer $token" -X POST "$ENDPOINT/session/logout"
 
 # Clean up temp file#
 rm -f $Temp_JobDef_path
