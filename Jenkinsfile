@@ -93,6 +93,9 @@ echo $token
 tmp=$(curl -k -H "Authorization: Bearer $token" "Content-Type: application/json" "$ENDPOINT/deploy/jobs?ctm=*&folder=DEV_ABC123")
 
 echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > $Temp_JobDef_path
+echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+echo $tmp
+echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 
 #curl -k -s -H "Authorization: Bearer $token" --request POST --data "{\"username\":\"$username\",\"token\":\"$token\"}" "$ENDPOINT/session/logout"
 curl -k -s -H "Authorization: Bearer $token" --request POST "$ENDPOINT/session/logout"
