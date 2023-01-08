@@ -78,11 +78,6 @@ Temp_JobDef_path=temp_job_file.json
 #Temp_JobDef_path=/cygdrive/c/temp_job_file.json
 #Temp_JobDef_path=/cygdrive/c/temp_job_file.json
 
-#Dev
-#devEndPoint=https://ctm01p:8443/automation-api
-#devUser=apiuser 
-#devPasswd=empass 
-
 # Login to automation API and start a session on Dev# 
 # devLogin=$(curl -s --insecure --header "Content-Type: application/json" --request POST --data "{\"username\":\"$devUser\",\"password\":\"$devPasswd\"}" "$devEndPoint/session/login") 
 login=$(curl -k -s -H "Content-Type: application/json" -X POST -d \\{\\"username\\":\\"$username\\",\\"password\\":\\"$password\\"\\} "$ENDPOINT/session/login" )
