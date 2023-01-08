@@ -86,7 +86,8 @@ Temp_JobDef_path='/tmp/temp_job_file.json'
 login=$(curl -k -s -H "Content-Type: application/json" -X POST -d \\{\\"username\\":\\"$username\\",\\"password\\":\\"$password\\"\\} "$ENDPOINT/session/login" )
 
 # Extract the token ID from session details from Dev# 
-token=$(echo ${login##*token\" : \"} | cut -d '"' -f 1)
+# token=$(echo ${login##*token\" : \"} | cut -d '"' -f 1)
+token=$(echo ${login##*token\\" : \\"} | cut -d '"' -f 1)
 echo $token
 
 # Download the job definitions and save on json#
@@ -113,7 +114,8 @@ login=$(curl -k -s -H "Content-Type: application/json" -X POST -d \\{\\"username
 
 # Extract the token ID from session details from PROD# 
 # PRODtoken=$(echo ${PRODlogin##*token\" : \"} | cut -d '"' -f 1)
-token=$(echo ${login##*token\" : \"} | cut -d '"' -f 1)
+#token=$(echo ${login##*token\" : \"} | cut -d '"' -f 1)
+token=$(echo ${login##*token\\" : \\"} | cut -d '"' -f 1)
 echo $token
 
 # dynamic job def to transform and deploy#
