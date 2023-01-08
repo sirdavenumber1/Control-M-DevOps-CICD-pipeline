@@ -95,7 +95,7 @@ tmp=$(curl -k -H "Authorization: Bearer $token" "Content-Type: application/json"
 
 echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 
-echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > $Temp_JobDef_path
+echo -e $tmp | sed 's/\\"/"/g;s/"{/{/;s/}"/}/' > @$Temp_JobDef_path
 echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 echo $tmp
 echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
