@@ -9,12 +9,18 @@
       {
 	"Comment": "Change Host of a Job based on job name.",      
         "ApplyOn" :  {"Type":"Job:FileTransfer"},	     
- 	"Property":"FileTransfers.Src",    
-	"Replace" : [ {"Partner_Portal" : "Partner_PortalXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"} ]
+ 	"Property":"FileTransfers.Src",  
+	"Assign": "Partner_PortalXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     },
     {
 	  "Comment": "Rename folder prefix from Dev to PROD",
       "ApplyOn"     :  {"Type":"SimpleFolder"},
+      "Property" : "@",
+      "Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
+    },  
+    {
+	  "Comment": "Rename folder prefix from Dev to PROD",
+      "ApplyOn"     :  {"Type":"Application"},
       "Property" : "@",
       "Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
     },
