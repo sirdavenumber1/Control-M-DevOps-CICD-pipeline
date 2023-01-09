@@ -10,8 +10,7 @@
 	"Comment": "Change Host of a Job based on job name.",      
         "ApplyOn" :  {"Type":"Job:FileTransfer"},	      
  	"Property":"Src",
-	"Source":"FileName",
-	"Replace" : [ { "GET_GD_FILE":"Partner_Portal_QA"} ]      
+	"Assign" : "C:\\Partner_PortalXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\\OUT\\PpTestfile01.txt"    
     },
     {
 	  "Comment": "Rename folder prefix from Dev to PROD",
