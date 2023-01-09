@@ -1,7 +1,7 @@
 {            
 	"Defaults": {
 		"Application": "DEV_ABC123",
-		"SubApplication": "FileTransform",
+		"SubApplication": "ODS",
 		"RunAs": "Administrator",
 		"Host": "ctm01d"
 	},
@@ -27,7 +27,7 @@
 		},
 		"PUT_PP_FILE": {
 				"Type" : "Job:FileTransfer",
-				"ConnectionProfileDualEndpoint" : "QA_GD_GROUP",
+				"ConnectionProfileDualEndpoint" : "DEV_GD_GROUP",
 				"Host": "jobsvr1d",
 				"FileTransfers" :
 				[{
@@ -39,7 +39,7 @@
 		},
 		"GET_GD_FILE": {
 				"Type" : "Job:FileTransfer",
-				"ConnectionProfileDualEndpoint" : "QA_GD_GROUP",
+				"ConnectionProfileDualEndpoint" : "DEV_GD_GROUP",
 				"Host": "jobsvr1d",
 				"FileTransfers" :
 				[{
