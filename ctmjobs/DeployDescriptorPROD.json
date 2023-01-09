@@ -9,7 +9,8 @@
       {
 	"Comment": "Change Host of a Job based on job name.",      
         "ApplyOn" :  {"Type":"Job:FileTransfer"},	     
- 	"Property":"FileTransfers:Src",  
+ 	"Property":"Src",       
+ 	"Source":"FileTransfers",  
 	"Assign": "Partner_PortalXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     },
     {
