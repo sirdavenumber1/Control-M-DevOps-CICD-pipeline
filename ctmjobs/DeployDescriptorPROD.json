@@ -18,18 +18,22 @@
       "Property" : "@",
       "Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
     },  
-    {
-	  "Comment": "Rename folder prefix from Dev to PROD",
-      "ApplyOn"     :  {"Type":"Application"},
-      "Property" : "@",
-      "Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
-    },
 	{
 	  "Comment": "Rename Job name prefix from Dev to PROD",
 	  "ApplyOn" : {"Type":"Job"},
       "Property" : "@",
       "Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
 	},
+	  
+	  
+	      {
+      "Comment": "Change Host of a Job based on application.",
+      "ApplyOn": {"Type":"Job.*"},
+      "Property": "Application",
+       "Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
+    }	
+	  
+	  
 	{
 	  "Comment": "Rename File Name from Dev to PROD",
 	  "ApplyOn" : {"Type":"Job:Script"},
