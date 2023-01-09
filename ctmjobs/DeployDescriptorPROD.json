@@ -9,7 +9,7 @@
       {
 	"Comment": "Change Host of a Job based on job name.",      
         "ApplyOn" :  {"Type":"Job:FileTransfer"},	     
- 	"Property":"@",            
+ 	"Property":"FileTransfers.*",            
       	"Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
     },
     {
