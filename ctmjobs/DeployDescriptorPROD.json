@@ -16,7 +16,7 @@
     },	  
       {
 	"Comment": "Change Src JobFileTransfer.",     
- 	"Source":"JobName",     
+ 	"Source":"JobName.GET_GD_FILE",     
         "ApplyOn" :  {"Type":"Job:FileTransfer"},	  
 	"Property":"FileTransfers[0]['Src']",            
       	"Assign" : "C:\\Partner_Portal\\PROD\\IN\\GDTestfile01.txt"
