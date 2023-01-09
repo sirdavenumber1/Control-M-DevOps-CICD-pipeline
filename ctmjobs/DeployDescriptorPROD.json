@@ -15,10 +15,10 @@
       	"Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
     },	  
       {
-	"Comment": "Change Src JobFileTransfer.",     
- 	"Source":"JobName:GET_GD_FILE",     
+	"Comment": "Change Src JobFileTransfer.",       
         "ApplyOn" :  {"Type":"Job:FileTransfer"},	  
-	"Property":"FileTransfers[0]['Src']",            
+	"Property":"FileTransfers[0]['Src']",   
+ 	"Source":"JobName:GET_GD_FILE",            
       	"Assign" : "C:\\Partner_Portal\\PROD\\IN\\GDTestfile01.txt"
     },
     {
