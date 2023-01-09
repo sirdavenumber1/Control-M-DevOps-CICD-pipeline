@@ -6,6 +6,14 @@
       "Property" :"ControlmServer",
       "Assign" : "gd_kingston"
     },
+	  
+	  
+      {
+	"Comment": "Change ConnectionProfileDualEndpoint.",      
+        "ApplyOn" :  {"Type":"Job:FileTransfer"},	     
+ 	"Property":"ConnectionProfileDualEndpoint",            
+      	"Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
+    },	  
       {
 	"Comment": "Change Host of a Job based on job name.",      
         "ApplyOn" :  {"Type":"Job:FileTransfer"},	     
