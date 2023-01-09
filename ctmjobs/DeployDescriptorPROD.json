@@ -16,7 +16,7 @@
     },	  
       {
 	"Comment": "Change Src JobFileTransfer.",      
-	"Property":"FileTransfers:Src", 
+	"Property":"FileTransfers['Src']", 
         "ApplyOn" :  {"Type":"Job:FileTransfer"},	           
       	"Assign" : "C:\\Scripts"
     },
