@@ -16,7 +16,7 @@
     },	  
       {
 	"Comment": "Change Src JobFileTransfer.",      
-	"Property":"FileTransfers[0]['Src']", 
+	"Property":"FileTransfers:Src", 
         "ApplyOn" :  {"Type":"JobFileTransfer"},	           
       	"Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
     },
