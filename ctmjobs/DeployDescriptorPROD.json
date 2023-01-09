@@ -7,11 +7,11 @@
       "Assign" : "gd_kingston"
     },
       {
-      "Comment": "Change Host of a Job based on job name.",
-      "Property": "Src",
-      "ApplyOn" :  {"Type":"Job:FileTransfer"},
-      "Source": "Application",
-      "Replace": [ {"Partner_Portal" : "Partner_Portal_QA"} ]
+	"Comment": "Change Host of a Job based on job name.",      
+        "ApplyOn" :  {"Type":"Job:FileTransfer"},	      
+ 	"Property":"Src",
+	"Source":"FileName",
+	"Replace" : [ { "GET_GD_FILE":"Partner_Portal_QA"} ]      
     },
     {
 	  "Comment": "Rename folder prefix from Dev to PROD",
