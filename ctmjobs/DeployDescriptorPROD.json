@@ -10,7 +10,7 @@
 	"Comment": "Change Host of a Job based on job name.",      
         "ApplyOn" :  {"Type":"Job:FileTransfer"},	     
  	"Property":"Src",      
- 	"Source":"FileName", 
+ 	"Source":"@", 
 	"Replace" : [ {"GET_GD_FILE" : "Partner_PortalXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"} ]
     },
     {
