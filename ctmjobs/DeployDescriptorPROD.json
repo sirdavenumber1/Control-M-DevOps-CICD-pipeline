@@ -15,9 +15,9 @@
       	"Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
     },	  
       {
-	"Comment": "Change Host of a Job based on job name.",      
-        "ApplyOn" :  {"Type":"Job:FileTransfer"},	     
- 	"Property":"FileTransfers.*",            
+	"Comment": "Change Src JobFileTransfer.",      
+	"Property":"FileTransfers[0]['Src']", 
+        "ApplyOn" :  {"Type":"JobFileTransfer"},	           
       	"Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
     },
     {
