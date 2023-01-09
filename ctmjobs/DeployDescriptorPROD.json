@@ -15,8 +15,16 @@
 	  
 	  
 	  
+	 
+
 	  
-	  
+    {
+	"Comment": "Change Src JobFileTransfer.",       
+        "ApplyOn" :  {"Type":"Job:FileTransfer", "@" : "PUT_PP_FILE"},	  
+	"Property":"FileTransfers[0]['Src']",          
+      	"Assign" : "C:\\Partner_Portal\\PROD\\OUT\\PpTestfile01.txt "
+    },
+	  	  
 	  
 	  
     {
