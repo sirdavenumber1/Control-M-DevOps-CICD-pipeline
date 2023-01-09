@@ -11,9 +11,7 @@
       "Property": "Src",
       "ApplyOn" :  {"Type":"Job:FileTransfer"},
       "Source": "Application",
-      "Replace": [
-    	{ "C:\\Partner_Portal\\IN\\GDTestfile01.txt":"C:\\Partner_Portal\\QA\\IN\\GD_QA_Testfile01.txt"}
-		]
+      "Replace": [ {"C:\\Partner_Portal\\IN\\GDTestfile01.txt" : "C:\\Partner_Portal\\QA\\IN\\GD_QA_Testfile01.txt"} ]
     },
     {
 	  "Comment": "Rename folder prefix from Dev to PROD",
