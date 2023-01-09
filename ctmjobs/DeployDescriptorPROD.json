@@ -18,7 +18,7 @@
 	"Comment": "Change Src JobFileTransfer.",      
 	"Property":"FileTransfers:Src", 
         "ApplyOn" :  {"Type":"JobFileTransfer"},	           
-      	"Replace" : [ {"Partner_Portal" : "Partner_Portal_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"} ]
+      	"Replace" : [ {"C:\\Partner_Portal\\IN\\GDTestfile01.txt" : "C:\\Member_Portal\\IN\\GDTestfile01.txt"} ]
     },
     {
 	  "Comment": "Rename folder prefix from Dev to PROD",
