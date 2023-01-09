@@ -6,21 +6,34 @@
       "Property" :"ControlmServer",
       "Assign" : "gd_kingston"
     },
-  
-	  
     {
 	"Comment": "Change ConnectionProfileDualEndpoint.",      
         "ApplyOn" :  {"Type":"Job:FileTransfer"},	     
  	"Property":"ConnectionProfileDualEndpoint",            
       	"Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
-    },	  
-      {
+    },
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+    {
 	"Comment": "Change Src JobFileTransfer.",       
-        "ApplyOn" :  {"Type":"Job:FileTransfer"},	  
-	"Property":"FileTransfers[0]['Src']",   
- 	"Source":"JobName:GET_GD_FILE",            
+        "ApplyOn" :  {"Type":"Job:FileTransfer", "@" : "GET_GD_FILE"},	  
+	"Property":"FileTransfers[0]['Src']",          
       	"Assign" : "C:\\Partner_Portal\\PROD\\IN\\GDTestfile01.txt"
     },
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
     {
 	  "Comment": "Rename folder prefix from Dev to PROD",
       "ApplyOn"     :  {"Type":"SimpleFolder"},
