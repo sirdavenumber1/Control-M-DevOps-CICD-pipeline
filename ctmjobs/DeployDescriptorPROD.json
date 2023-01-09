@@ -15,9 +15,9 @@
       	"Replace" : [ {"DEV_(.*)" : "PROD_$1"} ]
     },	  
       {
-	"Comment": "Change Src JobFileTransfer.",      
-	"Property":"FileTransfers['Src']", 
-        "ApplyOn" :  {"Type":"Job:FileTransfer"},	           
+	"Comment": "Change Src JobFileTransfer.",    
+        "ApplyOn" :  {"Type":"Job:FileTransfer"},	  
+	"Property":"FileTransfers[]['Src']",            
       	"Assign" : "C:\\Scripts"
     },
     {
