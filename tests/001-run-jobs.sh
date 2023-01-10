@@ -17,7 +17,10 @@ token=$(echo ${login##*token\" : \"} | cut -d '"' -f 1)
 # Test - run the jobs
 echo "Running test jobs"
 # curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@../ctmjobs/MFT-conn-profiles.json" "$endpoint/deploy"
-submit=$(curl -k -s -H "Authorization: Bearer $token" -X POST -F "jobDefinitionsFile=@../ctmjobs/jobs.json" "$endpoint/run")
+# submit=$(curl -k -s -H "Authorization: Bearer $token" -X POST -F "jobDefinitionsFile=@../ctmjobs/jobs.json" "$endpoint/run")
+submit=$(curl -k -s -H "Authorization: Bearer $token" -X POST -F "jobDefinitionsFile=@$1" "$endpoint/run")
+
+
 runid=$(echo ${submit##*runId\" : \"} | cut -d '"' -f 1)
 
 # Check job status
