@@ -9,7 +9,10 @@ pipeline {
             }
             steps {
                 sh '''
-                py UpdateJson.py DEV
+                py UpdateJson.py DEV                
+                DescriptorFile = DEV_Descriptor.json
+                echo ${DescriptorFile}
+                
                 username=$CONTROLM_CREDS_USR
                 password=$CONTROLM_CREDS_PSW
 
@@ -19,6 +22,7 @@ pipeline {
 
                 # Build
                 curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/jobs.json" "$ENDPOINT/build"
+                #curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=DEV_Descriptor.json" "$ENDPOINT/build"
                 curl -k -s -H "Authorization: Bearer $token" -X POST "$ENDPOINT/session/logout"
                 '''
             }
