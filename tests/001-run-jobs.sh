@@ -5,6 +5,7 @@ password=$CONTROLM_CREDS_PSW
 
 
 echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+echo "${DescrContent}"
 
 DFile=DestDFile.json
 echo "${DescrContent}" > DestDFile.json  
