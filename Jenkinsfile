@@ -5,7 +5,7 @@ pipeline {
             environment {
                 CONTROLM_CREDS = credentials('controlm-qa-creds')
                 ENDPOINT = 'https://ctm01d:8443/automation-api'
-                DescrxContent = 'DEV_Descriptor.json'
+                DescrxContent = "DEV_Descriptor.json"
                 CTM_ENV = 'DEV_'
             }
             steps {
