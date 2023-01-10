@@ -51,7 +51,7 @@ pipeline {
                 for f in *.sh
                 do
                     #bash "$f" -H || exit $?  # execute successfully or exit
-                    bash "$f DEV_Descriptor.json" -H || exit $?  # execute successfully or exit
+                    bash "$f" -H || exit $?  # execute successfully or exit
                 done
                 cd ..
                 '''
