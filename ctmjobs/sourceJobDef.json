@@ -4,10 +4,10 @@
     "ControlmServer" : "gd_kingston",
     "INIT_PP_PROCESS" : {
       "Type" : "Job:Command",
-      "SubApplication" : "ODS",
+      "SubApplication" : "DEV_ABC123",
       "Host" : "jobsvr1d",
       "RunAs" : "Administrator",
-      "Application" : "DEV_ABC123",
+      "Application" : "ODS",
       "Command" : "\"C:\\Program Files\\BMC Software\\scripts\\PS\\Provider_Portal\\CRT_PP_DATA\\CRT_PP_DATA.exe\" ctm01d DEV",
       "IfBase:Folder:CompletionStatus_0" : {
         "Type" : "If:CompletionStatus",
@@ -19,19 +19,19 @@
     },
     "SAY_HELLO" : {
       "Type" : "Job:Command",
-      "SubApplication" : "ODS",
+      "SubApplication" : "DEV_ABC123",
       "Host" : "ctm01d",
       "RunAs" : "Administrator",
-      "Application" : "DEV_ABC123",
+      "Application" : "ODS",
       "Command" : "echo Hello folks This Control-M environment is !"
     },
     "PUT_PP_FILE" : {
       "Type" : "Job:FileTransfer",
       "ConnectionProfileDualEndpoint" : "DEV_GD_GROUP",
-      "SubApplication" : "ODS",
+      "SubApplication" : "DEV_ABC123",
       "Host" : "jobsvr1d",
       "RunAs" : "DEV_GD_GROUP",
-      "Application" : "DEV_ABC123",
+      "Application" : "ODS",
       "FileTransfers" : [ {
         "ABSTIME" : "0",
         "VERNUM" : "0",
@@ -54,10 +54,10 @@
     "GET_GD_FILE" : {
       "Type" : "Job:FileTransfer",
       "ConnectionProfileDualEndpoint" : "DEV_GD_GROUP",
-      "SubApplication" : "ODS",
+      "SubApplication" : "DEV_ABC123",
       "Host" : "jobsvr1d",
       "RunAs" : "DEV_GD_GROUP",
-      "Application" : "DEV_ABC123",
+      "Application" : "ODS",
       "FileTransfers" : [ {
         "ABSTIME" : "0",
         "VERNUM" : "0",
@@ -79,10 +79,10 @@
     },
     "END_PP_PROCESS" : {
       "Type" : "Job:Command",
-      "SubApplication" : "ODS",
+      "SubApplication" : "DEV_ABC123",
       "Host" : "ctm01d",
       "RunAs" : "Administrator",
-      "Application" : "DEV_ABC123",
+      "Application" : "ODS",
       "Command" : "echo Bye folks!"
     },
     "Flow" : {
