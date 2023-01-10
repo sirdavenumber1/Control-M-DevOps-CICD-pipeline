@@ -23,7 +23,7 @@ pipeline {
 
                 # Build
                 #curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/jobs.json" "$ENDPOINT/build"
-                curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/$DescriptorFile" "$ENDPOINT/build"
+                curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@$DescriptorFile" "$ENDPOINT/build"
                 curl -k -s -H "Authorization: Bearer $token" -X POST "$ENDPOINT/session/logout"
                 '''
             }
