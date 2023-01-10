@@ -5,8 +5,9 @@ import json, os
 from pprint import pprint
 
 ctmenv = sys.argv[1]
+JSON_FName = sys.argv[2]
 
-with open(".\example001.json", 'r') as f:
+with open(str(JSON_FName), 'r') as f:
     json_data = json.load(f)
     if (ctmenv.upper() == 'DEV'):
         json_data['DEV_ABC123']['PUT_PP_FILE']['FileTransfers'][0]['Src'] = 'C:\\Partner_Portal\\DEV\\OUT\\PpTestfile01.txt'
