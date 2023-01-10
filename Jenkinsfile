@@ -9,7 +9,7 @@ pipeline {
             }
             steps {
                 sh '''         
-                py UpdateJson.py DEV example001.json              
+                py UpdateJson.py DEV @ctmjobs/example001.json              
                 
                 DescriptorFile=DEV_Descriptor.json
                 echo ${DescriptorFile}
