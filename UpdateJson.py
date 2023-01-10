@@ -33,7 +33,7 @@ with open(str(JSON_FName), 'r') as f:
         print("Something is wrong!")
         sys.exit(9)
 
-#print(json_data)
+print(json_data)
 
 json_object = json.dumps(json_data, indent=4)
 
