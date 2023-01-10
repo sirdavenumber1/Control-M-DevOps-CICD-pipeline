@@ -5,9 +5,11 @@ password=$CONTROLM_CREDS_PSW
 DContent=$DESCRCONTENT
 
 echo "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
-echo $DContent
+echo "about to echo var DContent"
+echo ${DContent}
 echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-echo $DESCRCONTENT
+echo "about to echo var DESCRCONTENT"
+echo ${DESCRCONTENT}
 
 DFile=DestDFile.json
 echo "${DESCRCONTENT}" > DestDFile.json  
