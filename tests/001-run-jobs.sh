@@ -3,9 +3,13 @@ endpoint=$ENDPOINT
 username=$CONTROLM_CREDS_USR
 password=$CONTROLM_CREDS_PSW
 
+
+echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+
 DFile=DestDFile.json
 echo "${DescrContent}" > DestDFile.json  
 
+echo "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
 
 echo "{\"username\":\"$username\",\"password\":\"$password\"}"
 
