@@ -12,9 +12,12 @@ pipeline {
                 py UpdateJson.py DEV "ctmjobs/example001.json"
                 
                 DescriptorFile=DEV_Descriptor.json
-                echo ${DescriptorFile}
                 
-                DescrContent=$(<DescriptorFile)
+                echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                echo ${DescriptorFile}
+                echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+                
+                DescrContent=@$DescriptorFile
                 
                 username=$CONTROLM_CREDS_USR
                 password=$CONTROLM_CREDS_PSW
