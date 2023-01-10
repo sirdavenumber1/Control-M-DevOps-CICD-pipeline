@@ -12,7 +12,7 @@ pipeline {
                 sh '''         
                 py UpdateJson.py DEV "ctmjobs/example001.json"
                 
-                sleep 30
+                sleep 3
                 
                 DescriptorFile=DEV_Descriptor.json
                 
