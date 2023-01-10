@@ -6,10 +6,10 @@ DContent=$DESCRCONTENT
 
 echo "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
 echo "about to echo var DContent"
-echo ${DContent}
+echo "${DContent}"
 echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 echo "about to echo var DESCRCONTENT"
-echo ${DESCRCONTENT}
+echo "${DESCRCONTENT}"
 
 DFile=DestDFile.json
 echo "${DESCRCONTENT}" > DestDFile.json  
