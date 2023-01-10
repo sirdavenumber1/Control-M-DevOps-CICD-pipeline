@@ -16,8 +16,13 @@ pipeline {
                 echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                 echo ${DescriptorFile}
                 echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+                # var=$(<file)
+                # var=$(<file)
                 
-                DescrContent=@$DescriptorFile
+                DescrContent=$(<@$DescriptorFile)
+                echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+                echo ${DescrContent}
+                echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
                 
                 username=$CONTROLM_CREDS_USR
                 password=$CONTROLM_CREDS_PSW
