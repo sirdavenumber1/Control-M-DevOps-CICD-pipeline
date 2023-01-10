@@ -9,7 +9,7 @@ pipeline {
             }
             steps {
                 sh '''
-                py @/scripts/UpdateJson.py DEV                
+                py UpdateJson.py DEV                
                 
                 DescriptorFile=DEV_Descriptor.json
                 echo ${DescriptorFile}
