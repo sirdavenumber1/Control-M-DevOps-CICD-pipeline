@@ -2,20 +2,9 @@
 endpoint=$ENDPOINT
 username=$CONTROLM_CREDS_USR
 password=$CONTROLM_CREDS_PSW
-DContent=$DESCRCONTENT
+#DContent=$DESCRCONTENT
 
-echo "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
-echo "about to echo var DContent"
-echo "${DContent}"
-echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-echo "about to echo var DESCRCONTENT"
-echo "${DESCRCONTENT}"
-
-#DFile=DestDFile.json
-DFile=DEV_Descriptor.json
-#echo "${DESCRCONTENT}" > DestDFile.json  
-
-echo "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+DFile=DEV_Descriptor.json 
 
 echo "{\"username\":\"$username\",\"password\":\"$password\"}"
 
