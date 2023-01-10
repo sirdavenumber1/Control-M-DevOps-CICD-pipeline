@@ -15,15 +15,6 @@ pipeline {
                 
                 DescriptorFile=DEV_Descriptor.json
                 
-                #echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-                #echo ${DescriptorFile}
-                #echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
-                
-                #DESCRCONTENT=$(<DEV_Descriptor.json)
-                #echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
-                #echo ${DESCRCONTENT}
-                #echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"              
-                
                 username=$CONTROLM_CREDS_USR
                 password=$CONTROLM_CREDS_PSW
 
@@ -32,7 +23,6 @@ pipeline {
                 token=$(echo ${login##*token\\" : \\"} | cut -d '"' -f 1)
 
                 # Build
-                #curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/jobs.json" "$ENDPOINT/build"
                 curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@$DescriptorFile" "$ENDPOINT/build"
                 curl -k -s -H "Authorization: Bearer $token" -X POST "$ENDPOINT/session/logout"
                 '''
@@ -55,18 +45,8 @@ pipeline {
                 
                 sleep 3
                 
-                DescriptorFile=DEV_Descriptor.json
-                
-                echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-                echo ${DescriptorFile}
-                echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
-                # var=$(<file)
-                # var=$(<file)
-                
+                DescriptorFile=DEV_Descriptor.json        
                 DESCRCONTENT=$(<DEV_Descriptor.json)
-                echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
-                echo ${DESCRCONTENT}
-                echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
                 
                 # execute all .sh scripts in the tests directory
                 cd ./tests/
