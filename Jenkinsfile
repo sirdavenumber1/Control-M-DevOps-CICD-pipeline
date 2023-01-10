@@ -8,8 +8,8 @@ pipeline {
                 CTM_ENV = 'DEV_'
             }
             steps {
-                sh '''
-                py UpdateJson.py DEV                
+                sh '''         
+                py UpdateJson.py DEV example001.json              
                 
                 DescriptorFile=DEV_Descriptor.json
                 echo ${DescriptorFile}
@@ -22,8 +22,8 @@ pipeline {
                 token=$(echo ${login##*token\\" : \\"} | cut -d '"' -f 1)
 
                 # Build
-                curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/jobs.json" "$ENDPOINT/build"
-                #curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=DEV_Descriptor.json" "$ENDPOINT/build"
+                #curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@ctmjobs/jobs.json" "$ENDPOINT/build"
+                curl -k -s -H "Authorization: Bearer $token" -X POST -F "definitionsFile=@$DescriptorFile" "$ENDPOINT/build"
                 curl -k -s -H "Authorization: Bearer $token" -X POST "$ENDPOINT/session/logout"
                 '''
             }
