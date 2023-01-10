@@ -9,8 +9,9 @@ pipeline {
             }
             steps {
                 sh '''
-                py ./scripts/UpdateJson.py DEV                
-                DescriptorFile = DEV_Descriptor.json
+                py @/scripts/UpdateJson.py DEV                
+                
+                DescriptorFile=DEV_Descriptor.json
                 echo ${DescriptorFile}
                 
                 username=$CONTROLM_CREDS_USR
