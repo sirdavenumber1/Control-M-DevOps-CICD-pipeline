@@ -14,6 +14,8 @@ pipeline {
                 DescriptorFile=DEV_Descriptor.json
                 echo ${DescriptorFile}
                 
+                DescrContent=$(<DescriptorFile)
+                
                 username=$CONTROLM_CREDS_USR
                 password=$CONTROLM_CREDS_PSW
 
