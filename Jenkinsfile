@@ -19,7 +19,7 @@ pipeline {
                 # var=$(<file)
                 # var=$(<file)
                 
-                DescrContent=$(<@$DescriptorFile)
+                DescrContent=$(<DescriptorFile)
                 echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
                 echo ${DescrContent}
                 echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
