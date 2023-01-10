@@ -21,7 +21,7 @@ pipeline {
                 # var=$(<file)
                 # var=$(<file)
                 
-                DescrContent=$(<DescriptorFile)
+                DescrContent=$(<DEV_Descriptor.json)
                 echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
                 echo ${DescrContent}
                 echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
