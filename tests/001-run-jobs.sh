@@ -2,8 +2,10 @@
 endpoint=$ENDPOINT
 username=$CONTROLM_CREDS_USR
 password=$CONTROLM_CREDS_PSW
+DContent=$DescrContent
 
-
+echo "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+echo DContent
 echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 echo $DescrContent
 
