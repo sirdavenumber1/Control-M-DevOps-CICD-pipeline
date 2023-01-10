@@ -15,16 +15,14 @@ pipeline {
                 
                 DescriptorFile=DEV_Descriptor.json
                 
-                echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-                echo ${DescriptorFile}
-                echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
-                # var=$(<file)
-                # var=$(<file)
+                #echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                #echo ${DescriptorFile}
+                #echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
                 
-                DESCRCONTENT=$(<DEV_Descriptor.json)
-                echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
-                echo ${DESCRCONTENT}
-                echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+                #DESCRCONTENT=$(<DEV_Descriptor.json)
+                #echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+                #echo ${DESCRCONTENT}
+                #echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"              
                 
                 username=$CONTROLM_CREDS_USR
                 password=$CONTROLM_CREDS_PSW
@@ -53,6 +51,23 @@ pipeline {
             }
             steps {
                 sh '''
+                py UpdateJson.py DEV "ctmjobs/example001.json"
+                
+                sleep 3
+                
+                DescriptorFile=DEV_Descriptor.json
+                
+                echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                echo ${DescriptorFile}
+                echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+                # var=$(<file)
+                # var=$(<file)
+                
+                DESCRCONTENT=$(<DEV_Descriptor.json)
+                echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+                echo ${DESCRCONTENT}
+                echo "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+                
                 # execute all .sh scripts in the tests directory
                 cd ./tests/
                 for f in *.sh
