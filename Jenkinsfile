@@ -4,8 +4,9 @@ pipeline {
         stage('Build') {
             environment {
                 CONTROLM_CREDS = credentials('controlm-qa-creds')
-                ENDPOINT = 'https://ctm01d:8443/automation-api'
-                DescrxContent = "DEVDescriptor.json"
+                ENDPOINT = 'https://ctm01d:8443/automation-api'                
+                CTM_ENV = 'DEV_TEST_'
+                DESCRCONTENT = 'DEV_Descriptor.json'
             }
             steps {
                 sh '''         
@@ -50,7 +51,7 @@ pipeline {
                 CONTROLM_CREDS = credentials('controlm-qa-creds')
                 ENDPOINT = 'https://ctm01d:8443/automation-api'
                 CTM_ENV = 'DEV_TEST_'
-                DescrContent = 'DEV_Descriptor.json'
+                DESCRCONTENT = 'DEV_Descriptor.json'
             }
             steps {
                 sh '''
@@ -75,7 +76,7 @@ pipeline {
                 CONTROLM_CREDS = credentials('controlm-qa-creds')
                 ENDPOINT = 'https://ctm01d:8443/automation-api'
                 CTM_ENV = 'DEV_PROD_'
-                DescrContent = 'DEV_Descriptor.json'
+                DESCRCONTENT = 'DEV_Descriptor.json'
             }
             steps {
                 sh '''
