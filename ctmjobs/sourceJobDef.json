@@ -1,0 +1,93 @@
+{
+  "DEV_ABC123" : {
+    "Type" : "SimpleFolder",
+    "ControlmServer" : "gd_kingston",
+    "INIT_PP_PROCESS" : {
+      "Type" : "Job:Command",
+      "SubApplication" : "ODS",
+      "Host" : "jobsvr1d",
+      "RunAs" : "Administrator",
+      "Application" : "DEV_ABC123",
+      "Command" : "\"C:\\Program Files\\BMC Software\\scripts\\PS\\Provider_Portal\\CRT_PP_DATA\\CRT_PP_DATA.exe\" ctm01d DEV",
+      "IfBase:Folder:CompletionStatus_0" : {
+        "Type" : "If:CompletionStatus",
+        "CompletionStatus" : "60",
+        "Action:SetToOK_0" : {
+          "Type" : "Action:SetToOK"
+        }
+      }
+    },
+    "SAY_HELLO" : {
+      "Type" : "Job:Command",
+      "SubApplication" : "ODS",
+      "Host" : "ctm01d",
+      "RunAs" : "Administrator",
+      "Application" : "DEV_ABC123",
+      "Command" : "echo Hello folks This Control-M environment is !"
+    },
+    "PUT_PP_FILE" : {
+      "Type" : "Job:FileTransfer",
+      "ConnectionProfileDualEndpoint" : "DEV_GD_GROUP",
+      "SubApplication" : "ODS",
+      "Host" : "jobsvr1d",
+      "RunAs" : "DEV_GD_GROUP",
+      "Application" : "DEV_ABC123",
+      "FileTransfers" : [ {
+        "ABSTIME" : "0",
+        "VERNUM" : "0",
+        "Dest" : "/ctm/ctmagent/Inbound/PpTestfile01.txt",
+        "SRCOPT" : "0",
+        "TransferType" : "Binary",
+        "CASEIFS" : "0",
+        "DSTOPT" : "0",
+        "RECURSIVE" : "0",
+        "TransferOption" : "SrcToDest",
+        "Src" : "C:\\Partner_Portal\\OUT\\PpTestfile01.txt",
+        "TIMELIMIT" : "0",
+        "EXCLUDE_WILDCARD" : "0",
+        "NULLFLDS" : "0",
+        "TRIM" : "1",
+        "IF_EXIST" : "0",
+        "UNIQUE" : "0"
+      } ]
+    },
+    "GET_GD_FILE" : {
+      "Type" : "Job:FileTransfer",
+      "ConnectionProfileDualEndpoint" : "DEV_GD_GROUP",
+      "SubApplication" : "ODS",
+      "Host" : "jobsvr1d",
+      "RunAs" : "DEV_GD_GROUP",
+      "Application" : "DEV_ABC123",
+      "FileTransfers" : [ {
+        "ABSTIME" : "0",
+        "VERNUM" : "0",
+        "Dest" : "/ctm/ctmagent/Outbound/GDTestfile01.txt",
+        "SRCOPT" : "0",
+        "TransferType" : "Binary",
+        "CASEIFS" : "0",
+        "DSTOPT" : "0",
+        "RECURSIVE" : "0",
+        "TransferOption" : "DestToSrc",
+        "Src" : "C:\\Partner_Portal\\IN\\GDTestfile01.txt",
+        "TIMELIMIT" : "0",
+        "EXCLUDE_WILDCARD" : "0",
+        "NULLFLDS" : "0",
+        "TRIM" : "1",
+        "IF_EXIST" : "0",
+        "UNIQUE" : "0"
+      } ]
+    },
+    "END_PP_PROCESS" : {
+      "Type" : "Job:Command",
+      "SubApplication" : "ODS",
+      "Host" : "ctm01d",
+      "RunAs" : "Administrator",
+      "Application" : "DEV_ABC123",
+      "Command" : "echo Bye folks!"
+    },
+    "Flow" : {
+      "Type" : "Flow",
+      "Sequence" : [ "INIT_PP_PROCESS", "SAY_HELLO", "PUT_PP_FILE", "GET_GD_FILE", "END_PP_PROCESS" ]
+    }
+  }
+}
