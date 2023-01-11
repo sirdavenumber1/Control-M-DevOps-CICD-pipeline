@@ -9,7 +9,7 @@ pipeline {
             }
             steps {
                 sh '''         
-                py UpdateJson.py DEV "ctmjobs/sourceJobDef.json"
+                py UpdateJson.py DEV "ctmjobs/sourceJobDef.json" "DEV_ABC123"
                 
                 sleep 3
                 
@@ -41,7 +41,7 @@ pipeline {
             }
             steps {
                 sh '''
-                py UpdateJson.py DEV "ctmjobs/sourceJobDef.json"
+                py UpdateJson.py DEV "ctmjobs/sourceJobDef.json" "DEV_ABC123"
                 
                 sleep 3
                 
@@ -72,7 +72,7 @@ pipeline {
             }
             steps {
                 sh '''				
-				py UpdateJson.py QA "ctmjobs/sourceJobDef.json"
+		py UpdateJson.py QA "ctmjobs/sourceJobDef.json" "DEV_ABC123"
                 
                 sleep 3
                 
