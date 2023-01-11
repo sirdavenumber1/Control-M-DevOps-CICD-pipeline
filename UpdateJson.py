@@ -15,6 +15,7 @@ envLen = len(old_CTM_FolderName.split("_")[0])
 new_CTM_FolderName = ctmenv + old_CTM_FolderName[envLen:]
 #print(new_CTM_FolderName)
 
+
 oldCTMenv = (old_CTM_FolderName.split("_")[0])
 #print(oldCTMenv)
 
@@ -29,23 +30,51 @@ with open(str(JSON_FName), 'r') as f:
     json_data[new_CTM_FolderName]['GET_GD_FILE']['SubApplication'] = ctmenv + (json_data[new_CTM_FolderName]['GET_GD_FILE']['SubApplication'])[envLen:]
     json_data[new_CTM_FolderName]['END_PP_PROCESS']['SubApplication'] = ctmenv + (json_data[new_CTM_FolderName]['END_PP_PROCESS']['SubApplication'])[envLen:]		
     if (ctmenv.upper() == 'DEV'):	
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['ConnectionProfileDualEndpoint'] = str(ctmenv) + '_GD_GROUP'
+        #json_data[new_CTM_FolderName]['PUT_PP_FILE']['Host'] = 'jobsvr1d'
+        json_data[new_CTM_FolderName]['PUT_PP_FILE']['RunAs'] = str(ctmenv) + '_GD_GROUP'
         json_data[new_CTM_FolderName]['PUT_PP_FILE']['FileTransfers'][0]['Src'] = 'C:\\Partner_Portal\\DEV\\OUT\\PpTestfile01.txt'
         json_data[new_CTM_FolderName]['PUT_PP_FILE']['FileTransfers'][0]['Dest'] = '/ctm/ctmagent/Inbound/PpTestfile01.txt'
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['ConnectionProfileDualEndpoint'] = str(ctmenv) + '_GD_GROUP'
+        #json_data[new_CTM_FolderName]['GET_GD_FILE']['Host'] = 'jobsvr1d'
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['RunAs'] = str(ctmenv) + '_GD_GROUP'
         json_data[new_CTM_FolderName]['GET_GD_FILE']['FileTransfers'][0]['Src'] = 'C:\\Member_Portal\\DEV\\IN\\GDTestfile01.txt'
         json_data[new_CTM_FolderName]['GET_GD_FILE']['FileTransfers'][0]['Dest'] = '/ctm/ctmagent/Outbound/GDTestfile01.txt'
-    elif (ctmenv.upper() == 'QA'):	
+    elif (ctmenv.upper() == 'QA'):
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['ConnectionProfileDualEndpoint'] = str(ctmenv) + '_GD_GROUP'
+        #json_data[new_CTM_FolderName]['PUT_PP_FILE']['Host'] = 'jobsvr1q'
+        json_data[new_CTM_FolderName]['PUT_PP_FILE']['RunAs'] = str(ctmenv) + '_GD_GROUP'
         json_data[new_CTM_FolderName]['PUT_PP_FILE']['FileTransfers'][0]['Src'] = 'C:\\Partner_Portal\\QA\\OUT\\PpTestfile01.txt'
         json_data[new_CTM_FolderName]['PUT_PP_FILE']['FileTransfers'][0]['Dest'] = '/ctm/ctmagent/Inbound/PpTestfile01.txt'
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['ConnectionProfileDualEndpoint'] = str(ctmenv) + '_GD_GROUP'
+        #json_data[new_CTM_FolderName]['GET_GD_FILE']['Host'] = 'jobsvr1q'
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['RunAs'] = str(ctmenv) + '_GD_GROUP'
         json_data[new_CTM_FolderName]['GET_GD_FILE']['FileTransfers'][0]['Src'] = 'C:\\Member_Portal\\QA\\IN\\GDTestfile01.txt'
         json_data[new_CTM_FolderName]['GET_GD_FILE']['FileTransfers'][0]['Dest'] = '/ctm/ctmagent/Outbound/GDTestfile01.txt'
     elif (ctmenv.upper() == 'PREPROD'):
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['ConnectionProfileDualEndpoint'] = str(ctmenv) + '_GD_GROUP'
+        #json_data[new_CTM_FolderName]['PUT_PP_FILE']['Host'] = 'jobsvr1pp'
+        json_data[new_CTM_FolderName]['PUT_PP_FILE']['RunAs'] = str(ctmenv) + '_GD_GROUP'
         json_data[new_CTM_FolderName]['PUT_PP_FILE']['FileTransfers'][0]['Src'] = 'C:\\Partner_Portal\\PREPROD\\OUT\\PpTestfile01.txt'
         json_data[new_CTM_FolderName]['PUT_PP_FILE']['FileTransfers'][0]['Dest'] = '/ctm/ctmagent/Inbound/PpTestfile01.txt'
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['ConnectionProfileDualEndpoint'] = str(ctmenv) + '_GD_GROUP'
+        #json_data[new_CTM_FolderName]['GET_GD_FILE']['Host'] = 'jobsvr1pp'
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['RunAs'] = str(ctmenv) + '_GD_GROUP'
         json_data[new_CTM_FolderName]['GET_GD_FILE']['FileTransfers'][0]['Src'] = 'C:\\Member_Portal\\PREPROD\\IN\\GDTestfile01.txt'
         json_data[new_CTM_FolderName]['GET_GD_FILE']['FileTransfers'][0]['Dest'] = '/ctm/ctmagent/Outbound/GDTestfile01.txt'
     elif (ctmenv.upper() == 'PROD'):
+        json_data[new_CTM_FolderName]['ControlmServer'] = 'gd_portland'
+        json_data[new_CTM_FolderName]['INIT_PP_PROCESS']['Host'] = 'jobsvr1p'
+        json_data[new_CTM_FolderName]['SAY_HELLO']['Host'] = 'jobsvr1p'
+        json_data[new_CTM_FolderName]['END_PP_PROCESS']['Host'] = 'jobsvr1p'
+        json_data[new_CTM_FolderName]['PUT_PP_FILE']['ConnectionProfileDualEndpoint'] = str(ctmenv) + '_GD_GROUP'
+        json_data[new_CTM_FolderName]['PUT_PP_FILE']['Host'] = 'jobsvr1p'
+        json_data[new_CTM_FolderName]['PUT_PP_FILE']['RunAs'] = str(ctmenv) + '_GD_GROUP'
         json_data[new_CTM_FolderName]['PUT_PP_FILE']['FileTransfers'][0]['Src'] = 'C:\\Partner_Portal\\PROD\\OUT\\PpTestfile01.txt'
         json_data[new_CTM_FolderName]['PUT_PP_FILE']['FileTransfers'][0]['Dest'] = '/ctm/ctmagent/Inbound/PpTestfile01.txt'
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['ConnectionProfileDualEndpoint'] = str(ctmenv) + '_GD_GROUP'
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['Host'] = 'jobsvr1p'
+        json_data[new_CTM_FolderName]['GET_GD_FILE']['RunAs'] = str(ctmenv) + '_GD_GROUP'
         json_data[new_CTM_FolderName]['GET_GD_FILE']['FileTransfers'][0]['Src'] = 'C:\\Member_Portal\\PROD\\IN\\GDTestfile01.txt'
         json_data[new_CTM_FolderName]['GET_GD_FILE']['FileTransfers'][0]['Dest'] = '/ctm/ctmagent/Outbound/GDTestfile01.txt'
     else :
