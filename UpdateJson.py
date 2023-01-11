@@ -23,11 +23,11 @@ oldCTMenv = (old_CTM_FolderName.split("_")[0])
 with open(str(JSON_FName), 'r') as f:
     json_data = json.load(f)
     json_data[new_CTM_FolderName] = json_data.pop(old_CTM_FolderName)
-    json_data[new_CTM_FolderName]['INIT_PP_PROCESS']['Application'] = ctmenv + (json_data[new_CTM_FolderName]['INIT_PP_PROCESS']['Application'])[envLen:]
-    json_data[new_CTM_FolderName]['SAY_HELLO']['Application'] = ctmenv + (json_data[new_CTM_FolderName]['SAY_HELLO']['Application'])[envLen:]
-    json_data[new_CTM_FolderName]['PUT_PP_FILE']['Application'] = ctmenv + (json_data[new_CTM_FolderName]['PUT_PP_FILE']['Application'])[envLen:]
-    json_data[new_CTM_FolderName]['GET_GD_FILE']['Application'] = ctmenv + (json_data[new_CTM_FolderName]['GET_GD_FILE']['Application'])[envLen:]
-    json_data[new_CTM_FolderName]['END_PP_PROCESS']['Application'] = ctmenv + (json_data[new_CTM_FolderName]['END_PP_PROCESS']['Application'])[envLen:]		
+    json_data[new_CTM_FolderName]['INIT_PP_PROCESS']['SubApplication'] = ctmenv + (json_data[new_CTM_FolderName]['INIT_PP_PROCESS']['SubApplication'])[envLen:]
+    json_data[new_CTM_FolderName]['SAY_HELLO']['SubApplication'] = ctmenv + (json_data[new_CTM_FolderName]['SAY_HELLO']['SubApplication'])[envLen:]
+    json_data[new_CTM_FolderName]['PUT_PP_FILE']['SubApplication'] = ctmenv + (json_data[new_CTM_FolderName]['PUT_PP_FILE']['SubApplication'])[envLen:]
+    json_data[new_CTM_FolderName]['GET_GD_FILE']['SubApplication'] = ctmenv + (json_data[new_CTM_FolderName]['GET_GD_FILE']['SubApplication'])[envLen:]
+    json_data[new_CTM_FolderName]['END_PP_PROCESS']['SubApplication'] = ctmenv + (json_data[new_CTM_FolderName]['END_PP_PROCESS']['SubApplication'])[envLen:]		
     if (ctmenv.upper() == 'DEV'):	
         json_data[new_CTM_FolderName]['PUT_PP_FILE']['FileTransfers'][0]['Src'] = 'C:\\Partner_Portal\\DEV\\OUT\\PpTestfile01.txt'
         json_data[new_CTM_FolderName]['PUT_PP_FILE']['FileTransfers'][0]['Dest'] = '/ctm/ctmagent/Inbound/PpTestfile01.txt'
@@ -51,8 +51,6 @@ with open(str(JSON_FName), 'r') as f:
     else :
         print("Something is wrong!")
         sys.exit(9)
-
-print(json_data)
 
 json_object = json.dumps(json_data, indent=4)
 
